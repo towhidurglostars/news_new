@@ -1,17 +1,17 @@
 package com.towhid.newsnew.di
 
+import com.towhid.newsnew.NewsRepository
 import com.towhid.newsnew.retrofit.NewsInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object DiModules {
 
     @Singleton
@@ -26,4 +26,12 @@ object DiModules {
     fun provideNewsInterface(retrofit: Retrofit): NewsInterface {
         return retrofit.create(NewsInterface::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideRepository(newsInterface: NewsInterface): NewsRepository {
+        return NewsRepository(newsInterface)
+    }
+
+
 }

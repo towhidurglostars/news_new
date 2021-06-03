@@ -18,5 +18,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.towhid.newsnew.fragment.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="article"
+            app:argType="com.towhid.newsnew.retrofit.response.Article"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

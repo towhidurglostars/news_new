@@ -3,13 +3,18 @@
 
     <data>
 
+<variable
+    name="article"
+    type="com.towhid.newsnew.retrofit.response.Article" />
     </data>
 
     <RelativeLayout
+        android:id="@+id/list_item_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+
             android:id="@+id/image_list_item"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -20,6 +25,7 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{article.title}"
             android:layout_below="@id/image_list_item"
             android:padding="8dp" />
     </RelativeLayout>
